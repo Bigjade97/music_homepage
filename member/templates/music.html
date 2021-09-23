@@ -1,0 +1,912 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <style>
+
+      @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
+      @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+      figure.snip1384 {
+        font-family: 'Raleway', Arial, sans-serif;
+        position: relative;
+        overflow: hidden;
+        margin: 0px;
+        width: 150px;
+        height: 150px;
+        color: #ffffff;
+        text-align: center;
+        font-size: 10px;
+        background-color: #000000;
+      }
+      figure.snip1384 * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all 0.35s ease;
+        transition: all 0.35s ease;
+      }
+      figure.snip1384 img {
+        max-width: 100%;
+        backface-visibility: hidden;
+        vertical-align: top;
+        margin: 0;
+      }
+      figure.snip1384:after,
+      figure.snip1384 figcaption {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      figure.snip1384:after {
+        content: '';
+        background-color: rgba(0, 0, 0, 0.65);
+        -webkit-transition: all 0.35s ease;
+        transition: all 0.35s ease;
+        opacity: 0;
+      }
+      figure.snip1384 figcaption {
+        z-index: 1;
+        padding: 0;
+      }
+      figure.snip1384 h3,
+      figure.snip1384 .links {
+        width: 100%;
+        margin: 5px 0;
+        padding: 0;
+      }
+      figure.snip1384 h3 {
+        line-height: 1.1em;
+        font-weight: 700;
+        font-size: 1.4em;
+        text-transform: uppercase;
+        opacity: 0;
+      }
+      figure.snip1384 p {
+        font-size: 0.8em;
+        font-weight: 300;
+        letter-spacing: 1px;
+        opacity: 0;
+        top: 50%;
+        -webkit-transform: translateY(40px);
+        transform: translateY(40px);
+      }
+      figure.snip1384 i {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        padding: 20px 25px;
+        font-size: 34px;
+        opacity: 0;
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+      }
+      figure.snip1384 a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+      }
+      figure.snip1384:hover img,
+      figure.snip1384.hover img {
+        zoom: 1;
+        filter: alpha(opacity=50);
+        -webkit-opacity: 0.5;
+        opacity: 0.5;
+      }
+      figure.snip1384:hover:after,
+      figure.snip1384.hover:after {
+        opacity: 1;
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+      }
+      figure.snip1384:hover h3,
+      figure.snip1384.hover h3,
+      figure.snip1384:hover p,
+      figure.snip1384.hover p,
+      figure.snip1384:hover i,
+      figure.snip1384.hover i {
+        -webkit-transform: translate(0px, 0px);
+        transform: translate(0px, 0px);
+        opacity: 1;
+      }
+      @font-face {
+        font-family: 'HSGaeulSenggak20';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSGaeulSenggak20.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'HSGaeulSenggak20';
+      }
+      body {
+        background-color: white;
+      }
+      .nav-menu {
+        display: flex;
+        justify-content: left;
+      }
+      .nav-menu .linenav {
+        font-size: 18px;
+        color: black;
+        text-decoration: none;
+        position: relative;
+        padding: 6px 12px;
+      }
+      .nav-menu .linenav::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0%;
+        height: 4px;
+        background: #828085;
+        transition: all .5s ease-out;
+      }
+      .nav-menu .linenav:hover::after {
+        width: 100%;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .search_img {
+        width: 30px;
+        height: 30px;
+        vertical-align: bottom;
+      }
+      .logo_img {
+        width: 130px;
+        height: 64px;
+      }
+      
+      .form {
+        position: relative;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 400px;
+        margin: 0 auto 100px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(107, 98, 98, 0.24);
+      }
+      .form input {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+      .form button {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #C5C4C6;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+      }
+      .form button:hover,.form button:active,.form button:focus {
+        background: #828085;
+      }
+      
+      #offcanvasTop {
+        height: 150px;
+      }
+      .searchtop {
+        height: 60px;
+      }
+
+      #smlogin {
+  
+        width: 400px;
+      }
+      .middle_button {
+        list-style: none;
+        padding-left: 0;
+        display: inline-block;
+      }
+
+      .btn7 {
+        box-shadow: inset 000px 0px 0px 0px #DCDADB;
+        -webkit-transition: all 0.6s cubic-bezier(.9, .24, .40, 1);
+        transition: all 0.6s cubic-bezier(.9, .24, .40, 1)
+      }
+
+      .btn7::before {
+          content: '';
+          width: 100%;
+          height: 0%;
+          display: block;
+          background: white;
+          position: absolute;
+          left: 0%;
+          opacity: 0;
+          top: 0;
+          z-index: -1;
+          -webkit-transition: height .4s cubic-bezier(0.9, 1, 0.32, 1), opacity .1s ease;
+          transition: height .4s cubic-bezier(0.9, 1, 0.32, 1), opacity .1s ease;
+        
+      }
+
+      .btn7:hover::before {
+          opacity: 1;
+          height: 100%;
+      }
+
+      .btn7:hover {
+          box-shadow: inset 00px 100px 0px 0px #828085;
+          color: #ffffff;
+      }
+      .top_img {
+        width: 150px;
+        height: 150px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+      }
+      .banner {
+        position:relative;
+        overflow:hidden;
+        width:100%;
+        height:104px;
+        margin:23px 0 0;
+        background-color:#e8eef3
+      }
+      .banner img {
+        height: 104px;
+      }
+      .innerContainer {
+        background-color: #EBE9EB;
+        border-radius: 20px;
+      }
+      figure {
+        border: solid gainsboro 2px;
+        border-radius: 10px;
+      }
+      figure img {
+        width: 100%;
+      }
+      figcaption {
+        width: 100%;
+      }
+      .top_album {
+        width: 200px;
+      }
+      .bottom_wrap img {
+        width: 100%;
+      }
+      .bottom_ment {
+        text-align: center;
+      }
+      .bottom_text {
+        list-style: none;
+        padding-left: 0;
+        display: inline-block;
+      }
+      .footer_menu {
+        text-align: end;
+      }
+      h5 {
+        width: 50%;
+      }
+      .social_img {
+        display: inline-block;
+      }
+      .social_img img{
+        width: 50px;
+        height: 50px;
+      }
+      tr:hover {
+        cursor: pointer;
+        font-size: 2em;
+        height: 1.5em;
+      }
+      thead:hover {
+        cursor: pointer;
+        font-size: 0;
+        height: 0;
+      }
+      .dropdown_2 {
+        display: none;
+      }
+    </style>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'music.ico' %}">
+    <title>뮤직뮤직</title>
+    <script>
+      window.onload = function() {
+        check_login();
+      }
+
+      function check_login(){
+        var id = "{{ pam1 }}";
+
+        if (id) {
+          $('.dropdown_2').removeClass('dropdown_2')
+          $('.top_dropdown_2').removeClass('d-none')
+          $('.dropdown_1').addClass('d-none')
+          $('.top_dropdown_1').addClass('d-none')
+        }
+        else {
+
+        }
+      }
+   
+      function ajax() {
+        $.post('login_ajax', { id_:  $("#id").val(), pw_: $("#pw").val(), csrfmiddlewaretoken: document.getElementsByName("csrfmiddlewaretoken")[0].value },
+        function ( hello ){
+          $("#my_div").html(hello);
+        }
+        );
+      }
+
+      $(".hover").mouseleave(
+        function () {
+          $(this).removeClass("hover");
+        }
+      );
+    </script>
+  </head>
+  <body>
+    <!-- 네비게이션 헤드 -->
+    <div class="container">
+      <!-- 우측상단 로그인 회원가입 -->
+      <div class="d-flex justify-content-end mt-2 top_dropdown_1">
+        <a class="shadow-light" type="button" href='login' >로그인</a>
+        <a class="shadow-light mx-3" type="button" href='make' >회원가입</a>
+      </div>
+      <div class="d-flex justify-content-end mt-2 d-none top_dropdown_2">
+        <a class="shadow-light" type="button" href='mypage' >마이페이지</a>
+        <a class="shadow-light mx-3" type="button" href='logout' >로그아웃</a>
+      </div>
+      
+      <!-- 로고 네비게이션 -->
+      <nav class="navbar navbar-light bg-white mt-3">
+        <div class="container">
+          <a class="navbar-brand" href='http://118.67.129.245:8000/ssac/main'>
+            <img class="logo_img" src="{% static 'MM.png' %}">
+            <span style="vertical-align: bottom;">music</span>
+          </a>
+          <!-- 검색 -->
+          <a class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"><img class="search_img me-3" src="{% static 'search.png' %}"></a>
+        
+          <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasTopLabel"></h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+              <form class="d-flex searchtop">
+                <input class="form-control" type="search" placeholder="Search">
+                <button class="btn btn-outline-secondary" type="submit">search</button>
+              </form>
+            </div>
+          </div>  
+        </div>
+      </nav>
+      <!-- 메인 네비게이션 -->
+      <nav class="nav-menu navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid d-flex justify-content-between">
+          <a></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown linenav">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  뮤직차트
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">TOP100</a></li>
+                  <li><a class="dropdown-item" href="#">장르별 차트</a></li>
+                  <li><a class="dropdown-item" href="#">세대별 차트</a></li>
+                  <li><a class="dropdown-item" href="#">뮤직비디오 차트</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown linenav">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  최신음악
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">최신 곡</a></li>
+                  <li><a class="dropdown-item" href="#">최신 앨범</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown linenav">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  장르별
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">가요</a></li>
+                  <li><a class="dropdown-item" href="#">POP</a></li>
+                  <li><a class="dropdown-item" href="#">OST</a></li>
+                  <li><a class="dropdown-item" href="#">트롯</a></li>
+                  <li><a class="dropdown-item" href="#">EDM</a></li>
+                  <li><a class="dropdown-item" href="#">JAZZ</a></li>
+                  <li><a class="dropdown-item" href="#">JPOP</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown linenav">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  추천
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">추천</a></li>
+                  <li><a class="dropdown-item" href="#">인기</a></li>
+                  <li><a class="dropdown-item" href="#">태그</a></li>
+                </ul>
+              </li>
+              <li class="nav-item linenav">
+                <a class="nav-link" href="#">뮤직비디오</a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+        <!-- 로그인 드롭다운 -->
+        <div class="dropdown ms-auto dropdown_1">
+          <button class="btn dropdown-toggle mt-2 mx-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+            로그인/회원가입
+          </button>
+        
+          <ul id="smlogin" class="dropdown-menu dropdown-menu-end p-5" aria-labelledby="dropdownMenuButton1">
+            <div class="mb-2">뮤직 로그인</div>
+            <div class="login-input-container">
+              <form method="post">
+                {% csrf_token %}
+                <div class="login-input-wrap input-id">
+                  <i class="far fa-envelope"></i>
+                  <input name="id" class="form-control id mb-2 w-100" name="id" id="id" placeholder="아이디" type="text" required>
+                </div>
+                <div class="login-input-wrap input-password">
+                  <i class="fas fa-key"></i>
+                  <input name="pw" class="form-control pw mb-2 w-100" name="pw" id="pw" placeholder="비밀번호"  type="password" required>
+                </div>
+                <div class="login-btn-wrap">
+                  <button type="submit" onclick="ajax();" class="btn btn-outline-secondary w-100">로그인</button>
+                  <div class="d-flex justify-content-between">
+                    <a class="shadow-light mt-3" type="button" href='http://118.67.129.245:8007/ssac/passedit' >비밀번호 변경</a>
+                    <a class="shadow-light mt-3" type="button" href='http://118.67.129.245:8000/ssac/make' >회원가입</a>
+                  </div>  
+                </div>
+              <div id="my_div"></div>
+              </form>
+            </div>
+          </ul>
+        </div>
+        <div class="dropdown ms-auto dropdown_2">
+          <button class="btn dropdown-toggle mt-2 mx-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            /{{ pam1 }}님/
+          </button>
+        
+          <ul id="smlogin" class="dropdown-menu dropdown-menu-end p-5" aria-labelledby="dropdownMenuButton1">
+            <div class="mb-2">{{ pam1 }}님.</div>
+            <div class="login-input-container">
+              <form method="post">
+                {% csrf_token %}
+              <div class="login-btn-wrap">
+                <button type="button" onclick="location.href='mypage'"v class="btn btn-outline-secondary mb-3 w-100">마이페이지</button>
+                <div class="d-flex justify-content-between">
+                  <a class="shadow-light mt-3 ms-auto" type="button" href='logout' >로그아웃</a>
+                </div>  
+              </div>
+              </form>
+              
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    <hr>
+    <!-- 본문 최신음악 등 앨범 -->
+    <div class="container">
+      <div class="second_var">
+        <ul>
+          <li class="middle_button me-2">
+            <h2 class="mt-3">
+              <a type="button">최신음악</a>
+            </h2>
+          </li>
+          <li class="middle_button mx-2">
+            <a class="btn7" type="button">종합</a>
+          </li>
+          <li class="middle_button mx-2">
+            <a class="btn7" type="button">국내</a>
+          </li>
+          <li class="middle_button ms-2">
+            <a class="btn7" type="button">국외</a>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="row d-flex justify-content-center">
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img01.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">서준혁 & Lemma</h3>
+              <p class="mt-5">집단지성</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img02.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">이홍기 (FT아일랜드)</h3>
+              <p class="mt-5">(Vol.109) 유희열의 스케치북 : 일흔 한번째 목소리 '유스케 X 이홍기 (FT아일랜드)'</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img03.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">AITE (아이테)</h3>
+              <p class="mt-5">I LOVE MY ROOM</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img04.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">피아노의 숲</h3>
+              <p class="mt-5">Piano Playlist 01</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img05.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">감성소년</h3>
+              <p class="mt-5">쉽게 이별을 말하지마요</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img06.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">카진 (KAJIN)</h3>
+              <p class="mt-5">얼마나</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img07.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">IAMMONEY & BUSYNESSBOY</h3>
+              <p class="mt-5">IAMMONEY VS BUSYNESSBOY</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img08.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">김이불</h3>
+              <p class="mt-5">이러지 말아요</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img09.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">ESON</h3>
+              <p class="mt-5">ABOUT ME</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img10.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">김태연</h3>
+              <p class="mt-5">내 딸 하자 땡큐콘서트</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img11.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">뷰티풀 뷰 (VEAUTIFUL BIEW)</h3>
+              <p class="mt-5">이상해,불공평해,너가책임져야해</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+          <figure class="snip1384">
+            <img src="{% static 'top_img12.jpeg' %}" class="top_img" alt="...">
+            <figcaption>
+              <h3 class="mt-4">RAINUD</h3>
+              <p class="mt-5">Out of Time</p><i class="ion-ios-arrow-right"></i>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+      </div>  
+    </div>    
+    <!-- 배너     -->
+    <div class="banner p-0 row text-center">
+      <div class="banner-rolling col-sm-6 p-0">
+        <a href="https://program.genie.co.kr/swf/main" target="_blank">
+          <img src="{% static 'banner01.jpeg' %}" >
+        </a>
+      </div>
+      <div class="banner-mini col-sm-6 p-0">
+        <a href="https://mcountdown.genie.co.kr/vote/pre" target="_blank">
+          <img src="{% static 'banner02.jpeg' %}" >
+        </a>
+      </div>
+    </div>
+    <!-- CHART  -->
+    <div class="container">
+      <hr>
+      <div class="row">
+        <div class="chart col-12 col-md-8">
+          <h3 class="sub_title mt-5">실시간 차트</h3>
+          <div class="music-list-wrap main-chart-list me-5">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>img</td>
+                  <td>곡 제목</td>
+                  <td>가수이름</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td><img src="{% static 'chat_img01.jpeg' %}" style="width: 35px; height: 35px;""></td>
+                  <td>stay</td>
+                  <td>The Kid LAROI & Justin Bieber</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td colspan="2"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td colspan="2"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td colspan="2"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">7</th>
+                  <td colspan="2"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td colspan="2"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">9</th>
+                  <td colspan="2"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">10</th>
+                  <td colspan="2"></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 회전목마 -->
+        <div id="carouselExampleControls" class="carousel slide col-12 col-md-4 mt-5" data-bs-ride="carousel">
+          <h2 class="sub_title">HOT & NEW</h2>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'carousel_img01.jpeg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'carousel_img02.jpeg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'carousel_img03.jpeg' %}" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <!-- 뮤직비디오 바 -->
+      <section class="innerContainer p-3 mt-3 mb-5">
+        <div class="video_var mt-3">
+          <header class="mb-3">
+            <h3>최신 영상</h3>
+          </header>
+          <div class="row">
+            <div class="col-md-6 col-lg-3">
+              <figure>
+                <a href="https://www.youtube.com/watch?v=awkkyBH2zEo" target="_blank"><img src="{% static 'video_img01.jpeg' %}"></a>
+                <figcaption class="ms-3 mt-2">
+                  <p class="trackTitle">
+                    <span>12</span>
+                    <a>LALISA</a>
+                  </p>
+                  <div class="subInfo">
+                    <p class="artist">
+                      <a>리사</a>
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <figure>
+                <a href="https://www.youtube.com/watch?v=TP7FtzBuT8s" target="_blank"><img src="{% static 'video_img02.jpeg' %}"></a>
+                <figcaption class="ms-3 mt-2">
+                  <p class="trackTitle">
+                    <span>12</span>
+                    <a>OX1=LOVESONG</a>
+                  </p>
+                  <div class="subInfo">
+                    <p class="artist">
+                      <a>투모로우바이투게더</a>
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <figure>
+                <a href="https://www.youtube.com/watch?v=p4rHTk2oayk" target="_blank"><img src="{% static 'video_img03.jpeg' %}"></a>
+                <figcaption class="ms-3 mt-2">
+                  <p class="trackTitle">
+                    <span>12</span>
+                    <a>About Summer</a>
+                  </p>
+                  <div class="subInfo">
+                    <p class="artist">
+                      <a>이루리</a>
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <figure>
+                <a href="https://www.youtube.com/watch?v=0aaeUI1ucfQ" target="_blank"><img src="{% static 'video_img04.jpeg' %}"></a>
+                <figcaption class="ms-3 mt-2">
+                  <p class="trackTitle">
+                    <span>15</span>
+                    <a>PING PONG</a>
+                  </p>
+                  <div class="subInfo">
+                    <p class="artist">
+                      <a>현아&던</a>
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr>
+      <section class="p-5">
+        <div class="bottom_ment mt-5">
+        <h1>
+          <strong>지금 바로 로그인하고<br>한땀 한땀 만든 사이트에서 노래 듣기</strong>
+        </h1>
+        <p class="mt-3">K-Pop부터 Jpop까지 모든 장르를 아우르는 건 기본<br>수천 개의 플레이리스트가 트렌드에 맞게 업데이트.</p>
+      </div>
+      </section>
+      <!-- 꾸미기용 앨범띠? -->
+      <span class="bottom_wrap">
+        <img src="{% static 'bottom_wrap02.png' %}" >
+      </span>
+    </div>
+    <!-- 맨 아래 부분 -->
+    <hr>
+    <div class="footer p-1">
+      <div class="row">
+        <div class="notice m-0 col-2 d-flex justify-content-end">
+        <a type="button" class="ms-5">공지사항</a>
+        </div>
+        <ul class="footer_menu col-10 pe-5">
+          <li class="bottom_text mx-2">
+            <a class="" type="button">이벤트</a>
+          </li>
+          <li class="bottom_text mx-2">
+            <a class="" type="button">고객센터</a>
+          </li>
+          <li class="bottom_text mx-2">
+            <a class="" type="button">이용안내</a>
+          </li>
+        </ul>
+        <hr>
+        <div class="col-3 p-5 d-flex justify-content-end">
+          <h4 class="ms-3">(주) 뮤직뮤직</h4>  
+        </div>
+        <div class="col-5 p-5">
+        대표 박태규 | 서울 동작구 사당동<br> 
+        사업자등록번호 312-09-12312 | 문의전화 1515-1236 
+        </div>
+        <div class="footer_social col-4 mt-5 pe-5 d-flex justify-content-end">
+          <div class="social_img">
+            <a href="https://www.instagram.com" target="_blank">
+              <img src="{% static 'footer_img01.png' %}">
+            </a>
+          </div>
+          <div class="social_img mx-2">
+            <a href="https://www.youtube.com" target="_blank">
+              <img src="{% static 'footer_img03.png' %}">
+            </a>
+          </div>
+          <div class="social_img">
+            <a href="https://www.facebook.com" target="_blank">
+              <img src="{% static 'footer_img02.png' %}">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

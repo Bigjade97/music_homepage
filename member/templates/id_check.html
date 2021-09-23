@@ -1,0 +1,7 @@
+{% if OK == "Blank" %}     <!-- OK == true 랑 같은말 -->
+<div class="alert alert-warning">아이디를 입력해주세요.</div>
+{% elif OK %}
+<div class="alert alert-danger">중복된 ID입니다.</div>
+{% else %}
+<div class="alert alert-success">사용 가능한 ID입니다.</diV>
+{% endif %}
