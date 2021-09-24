@@ -78,4 +78,4 @@ def out (req) :
     else :
       return render(req, 'out.html') 
   else:
-    return render (req, 'out.html')
+    return render (req, 'out.html', {'pam1' : req.session['userid']})
