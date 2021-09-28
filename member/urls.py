@@ -11,4 +11,5 @@ urlpatterns = [
         path('edit', views.edit),
         path('id_check', views.id_check),
         path('out', views.out),
+        path('pw_chg', views.pw_chg),
 ]

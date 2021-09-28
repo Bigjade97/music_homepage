@@ -12,6 +12,7 @@ def main (req) :
       logged_member = User.objects.filter(userid = req.POST.get('id'), password = req.POST.get('pw'))
       if logged_member :
         req.session['userid'] = req.POST.get('id')
+        req.session['password'] = req.POST.get('pw')
         print("asda")
         return render(req, 'music.html', {'pam1' : req.session['userid']})
       else :
@@ -37,6 +38,7 @@ def login (req) :
     logged_member = User.objects.filter(userid = req.POST.get('id'), password = req.POST.get('pw'))
     if logged_member :
       req.session['userid'] = req.POST.get('id')
+      req.session['password'] = req.POST.get('pw')
       return redirect('../ssac/main')
     else :
       messages.error(req, '아이디와 비밀번호를 확인해주세요.')
@@ -65,7 +67,10 @@ def mypage (req) :
   return render(req, 'mypage.html', {'pam1' : req.session['userid']}) 
 
 def edit (req) :
-  return render(req, 'edit.html', {'pam1' : req.session['userid']}) 
+  return render(req, 'edit.html', {'pam1' : req.session['userid'], 'pam2' : req.session['password']}) 
+
+def pw_chg (req) :
+  return render(req, 'pw_chg.html', {'pam1' : req.session['userid']})
 
 def out (req) :
   if req.method == "POST" :

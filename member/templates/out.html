@@ -235,21 +235,21 @@
         <button onclick="location.href='edit'" class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">회원정보 변경</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">비밀번호 변경</button>
+        <button onclick="location.href='pw_chg'" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">비밀번호 변경</button>
       </li>
       <li class="nav-item" role="presentation">
         <button onclick="location.href='out'" class="nav-link active" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">회원탈퇴</button>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="home-tab">
         <section>
           <div class="form_box mt-5">
             <form class="" method="post">
               {% csrf_token %}
               <div class=" mb-3">
                 <label for="idForm">아이디</label>
-                <input type="text" class="form-control" name="id" id="id" placeholder="아이디" value="" required>
+                <input type="text" class="form-control" name="id" id="id" placeholder="{{ pam1 }}" value="{{ pam1 }}" required>
                 <div class="invalid-feedback"> 아이디를 입력해주세요. </div>
               </div>
               <div class="mb-3">
@@ -299,7 +299,7 @@
               {% csrf_token %}
               <div class=" mb-3">
                 <label for="idForm">아이디</label>
-                <input type="text" class="form-control" name="id" id="id" placeholder="아이디" value="" required>
+                <input type="text" class="form-control" name="id" id="id" placeholder="{{ pam1 }}" value="{{ pam1 }}" readonly>
                 <div class="invalid-feedback"> 아이디를 입력해주세요. </div>
               </div>
               <div class="mb-3">
