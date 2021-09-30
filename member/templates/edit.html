@@ -133,17 +133,35 @@
       padding-left: 0px;
       display: flex;
     }
+    @media (min-width: 500px){
+      .container2 {
+      max-width: 500px;
+      }
+    }
   </style>
   <script type="text/javascript">
+    window.onload = function(){
+        load_info();
+      }
+
+    function load_info(){
+      $("#gender").val("{{ pam4 }}"),
+      $("#genre").val("{{ pam6 }}")
+    }
+
      $(".hover").mouseleave(
       function() {
         $(this).removeClass("hover");
       }
     );
 
+    
   </script>
 </head>
 <body>
+  {% for message in messages %}
+    <script>alert('{{ message }}')</script>
+  {% endfor %}
   <div class="container">
     <nav class="navbar navbar-light bg-white mt-3">
       <a class="navbar-brand" href='http://118.67.129.245:8000/ssac/main'>
@@ -166,7 +184,6 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="#">TOP100</a></li>
                 <li><a class="dropdown-item" href="#">장르별 차트</a></li>
-                <li><a class="dropdown-item" href="#">세대별 차트</a></li>
                 <li><a class="dropdown-item" href="#">뮤직비디오 차트</a></li>
               </ul>
             </li>
@@ -188,9 +205,6 @@
                 <li><a class="dropdown-item" href="#">POP</a></li>
                 <li><a class="dropdown-item" href="#">OST</a></li>
                 <li><a class="dropdown-item" href="#">트롯</a></li>
-                <li><a class="dropdown-item" href="#">EDM</a></li>
-                <li><a class="dropdown-item" href="#">JAZZ</a></li>
-                <li><a class="dropdown-item" href="#">JPOP</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown linenav">
@@ -200,7 +214,6 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="#">추천</a></li>
                 <li><a class="dropdown-item" href="#">인기</a></li>
-                <li><a class="dropdown-item" href="#">태그</a></li>
               </ul>
             </li>
             <li class="nav-item linenav">
@@ -229,8 +242,8 @@
     </nav>
     <hr> 
   </div>
-  <div class="container">
-    <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+  <div class="container container2">
+    <ul class="nav nav-tabs d-flex justify-content-start" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button onclick="location.href='edit'" class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">회원정보 변경</button>
       </li>
@@ -249,22 +262,22 @@
               {% csrf_token %}
               <div class=" mb-3">
                 <label for="idForm">아이디</label>
-                <input type="text" class="form-control" name="id" id="id" placeholder="{{ pam1 }}" value="{{ pam1 }}" readonly>
+                <input type="text" class="form-control" name="id" placeholder="{{ pam1 }}" value="{{ pam1 }}" readonly>
                 <div class="invalid-feedback"> 아이디를 입력해주세요. </div>
               </div>
               <div class="mb-3">
                 <label for="passForm">비밀번호</label>
-                <input type="password" class="form-control" name="pw" id="pw" placeholder="{{ pam2 }}" value="{{ pam2 }}" required>
+                <input type="password" class="form-control" name="pw" placeholder="{{ pam2 }}" value="{{ pam2 }}" readonly>
                 <div class="invalid-feedback"> 비밀번호를 입력해주세요. </div>
               </div>
               <div class=" mb-3">
                 <label for="name">이름</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="이름" value="" required>
+                <input type="text" class="form-control" name="name"  placeholder="{{ pam3 }}" value="{{ pam3 }}" required>
                 <div class="invalid-feedback"> 이름을 입력해주세요. </div>
               </div>
               <div class="mb-3">
                 <label for="gender">성별</label>
-                <select class="form-select" name="gender" required>
+                <select class="form-select" name="gender" id="gender" value="{{ pam4 }}" required>
                   <option value="M">남성</option>
                   <option value="W">여성</option>
                   <option value="N">선택안함</option>
@@ -272,12 +285,12 @@
               </div>
               <div class="mb-3">
                 <label for="address">주소</label>
-                <input type="text" class="form-control" name="address" id="address" placeholder="서울특별시 강남구" required>
+                <input type="text" class="form-control" name="address" value="{{ pam5 }}">
                 <div class="invalid-feedback"> 주소를 입력해주세요. </div>
               </div>
               <div class="mb-3">
                 <label for="genre">좋아하는 장르</label>
-                <select class="custom-select d-block w-100" id="genre" name="genre">
+                <select class="custom-select d-block w-100" name="genre" id="genre" value="{{ pam6 }}">
                   <option value=""></option>
                   <option value="K">가요</option>
                   <option value="P">POP</option>
@@ -287,29 +300,7 @@
               </div>
               <button class="btn btn-outline-secondary btn-lg btn-block w-100 mb-3" type="submit">변경 완료</button>
             </form>
-              <button class="btn btn-outline-secondary btn-lg btn-block w-100" onclick="location.href='http://118.67.129.245:8000/ssac/main '" type="button">돌아가기</button>
-          </div>
-        </section>
-      </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <section>
-          <div class="form_box mt-5">
-            <form class="" method="post">
-              {% csrf_token %}
-              <div class=" mb-3">
-                <label for="idForm">아이디</label>
-                <input type="text" class="form-control" name="id" id="id" placeholder="아이디" value="" required>
-                <div class="invalid-feedback"> 아이디를 입력해주세요. </div>
-              </div>
-              <div class="mb-3">
-                <label for="passForm">비밀번호</label>
-                <input type="password" class="form-control" name="pw" id="pw" placeholder="비밀번호" required>
-                <div class="invalid-feedback"> 비밀번호를 입력해주세요. </div>
-              </div>
-              <button class="btn btn-outline-secondary btn-lg btn-block w-100 mb-3" type="submit">탈퇴</button>
-            </form>
-              <button class="btn btn-outline-secondary btn-lg btn-block w-100" onclick="location.href='http://118.67.129.245:8000/ssac/main '" type="button">돌아가기</button>
+              <button class="btn btn-outline-secondary btn-lg btn-block w-100" onclick="location.href='main'" type="button">돌아가기</button>
           </div>
         </section>
       </div>

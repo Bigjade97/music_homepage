@@ -133,10 +133,18 @@
       padding-left: 0px;
       display: flex;
     }
-    @media (min-width: 500px){
+    .chart_top_text {
+      font-size: 1.5em;
+    }
+    @media (min-width: 1000px){
       .container2 {
-      max-width: 500px;
+      max-width: 870px;
       }
+    }
+    .btn_genre {
+      list-style: none;
+      padding-left: 0px;
+      display: inline-block;
     }
   </style>
   <script type="text/javascript">
@@ -146,31 +154,9 @@
       }
     );
     
-    $(function(){ 
-      $("#alert-success").hide(); 
-      $("#alert-danger").hide(); 
-      $("input").keyup(function(){ 
-        var pw=$("#pw").val(); 
-        var pw2=$("#pw2").val(); 
-        if(pw != "" || pw2 != ""){ 
-          if(pw == pw2){ 
-            $("#alert-success").show(); 
-            $("#alert-danger").hide(); 
-            $("#submit").removeAttr("disabled"); 
-          }else{ 
-            $("#alert-success").hide(); 
-            $("#alert-danger").show(); 
-            $("#submit").attr("disabled", "disabled"); 
-          } 
-        } 
-      }); 
-    });
   </script>
 </head>
 <body>
-  {% for message in messages %}
-    <script>alert('{{ message }}')</script>
-  {% endfor %}
   <div class="container">
     <nav class="navbar navbar-light bg-white mt-3">
       <a class="navbar-brand" href='http://118.67.129.245:8000/ssac/main'>
@@ -191,9 +177,9 @@
                 뮤직차트
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">TOP100</a></li>
-                <li><a class="dropdown-item" href="#">장르별 차트</a></li>
-                <li><a class="dropdown-item" href="#">뮤직비디오 차트</a></li>
+                <li><a class="dropdown-item" href="chart_top">TOP100</a></li>
+                <li><a class="dropdown-item" href="chart_genre">장르별 차트</a></li>
+                <li><a class="dropdown-item" href="chart_video">뮤직비디오 차트</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown linenav">
@@ -240,7 +226,7 @@
             <div class="login-input-container">
               <div class="login-btn-wrap">
                 <button type="button" onclick="location.href='edit'" class="btn btn-outline-secondary mb-3 w-100">회원정보수정</button>
-                <button type="button" onclick="href='http://118.67.129.245:8000/ssac/editpage'" class="btn btn-outline-secondary mb-3 w-100">마이리스트</button>
+                <button type="button" onclick="href='editpage'" class="btn btn-outline-secondary mb-3 w-100">마이리스트</button>
                 <div class="d-flex justify-content-between">
                   <a class="shadow-light mt-3 ms-auto" type="button" href='logout' >로그아웃</a>
                 </div>  
@@ -252,46 +238,82 @@
     <hr> 
   </div>
   <div class="container container2">
+    <div class="mb-3 ms-2 chart_top_text">뮤직차트</div>
     <ul class="nav nav-tabs d-flex justify-content-start" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button onclick="location.href='edit'" class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">회원정보 변경</button>
+        <button onclick="location.href='chart_top'" class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">TOP100</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button onclick="location.href='pw_chg'" class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">비밀번호 변경</button>
+        <button onclick="location.href='chart_genre'" class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">장르별 차트</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button onclick="location.href='out'" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">회원탈퇴</button>
+        <button onclick="location.href='chart_video'" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">뮤직비디오 차트</button>
+      </li>
+    </ul>
+    <ul class="nav nav-tabs d-flex justify-content-start mt-3" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button onclick="location.href='chart_genre'" class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">가요</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button onclick="location.href='chart_genre_pop'" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">POP</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button onclick="location.href='chart_genre_ost'" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">OST</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button onclick="location.href='chart_genre_trot'" class="nav-link active" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">트롯</button>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
       <div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <section>
-          <div class="form_box mt-5">
-            <form class="" method="post">
-              {% csrf_token %}
-              <div class=" mb-3">
-                <label for="idForm">아이디</label>
-                <input type="text" class="form-control" name="id" placeholder="{{ pam1 }}" value="{{ pam1 }}" readonly>
-                <div class="invalid-feedback"> 아이디를 입력해주세요. </div>
-              </div>
-              <div class="mb-3">
-                <label for="passForm">변경할 비밀번호</label>
-                <input type="password" class="form-control" name="pw" id="pw" placeholder="비밀번호" required>
-                <div class="invalid-feedback"> 비밀번호를 입력해주세요. </div>
-              </div>
-              <div class="mb-3">
-                <label for="passForm">변경할 비밀번호 확인</label>
-                <input type="password" class="form-control" name="pw2" id="pw2" placeholder="비밀번호 확인" required>
-                <div class="invalid-feedback"> 다시 한번 비밀번호를 입력해주세요. </div>
-              </div>
-              <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
-              <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
-              <button class="btn btn-outline-secondary btn-lg btn-block w-100 mb-3" id="submit" type="submit">변경</button>
-            </form>
-              <button class="btn btn-outline-secondary btn-lg btn-block w-100" onclick="location.href='http://118.67.129.245:8000/ssac/main '" type="button">돌아가기</button>
-          </div>
-        </section>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col-1"></th>
+              <th scope="col-1">순위</th>
+              <th scope="col-1"></th>
+              <th scope="col-9">곡정보</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><input type="checkbox" class="align-middle mt-3"></th>
+              <td>1</td>
+              <td>img</td>
+              <td>
+                <div>홍야홍야</div>
+                <div>정태영 | 2 홍야홍야</div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><input type="checkbox" class="align-middle mt-3"></th>
+              <td>2</td>
+              <td></td>
+              <td>
+                <div>My Universe</div>
+                <div>Coldplay & 방탄소년단 | My Universe</div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><input type="checkbox" class="align-middle mt-3"></th>
+              <td>3</td>
+              <td></td>
+              <td>
+                <div>My Universe</div>
+                <div>Coldplay & 방탄소년단 | My Universe</div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><input type="checkbox" class="align-middle mt-3"></th>
+              <td>4</td>
+              <td></td>
+              <td>
+                <div>My Universe</div>
+                <div>Coldplay & 방탄소년단 | My Universe</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <section>

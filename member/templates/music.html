@@ -370,6 +370,9 @@
     </script>
   </head>
   <body>
+    {% for message in messages %}
+      <script>alert('{{ message }}')</script>
+    {% endfor %}
     <!-- 네비게이션 헤드 -->
     <div class="container">
       <!-- 우측상단 로그인 회원가입 -->
@@ -420,10 +423,9 @@
                   뮤직차트
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">TOP100</a></li>
-                  <li><a class="dropdown-item" href="#">장르별 차트</a></li>
-                  <li><a class="dropdown-item" href="#">세대별 차트</a></li>
-                  <li><a class="dropdown-item" href="#">뮤직비디오 차트</a></li>
+                  <li><a class="dropdown-item" href="chart_top">TOP100</a></li>
+                  <li><a class="dropdown-item" href="chart_genre">장르별 차트</a></li>
+                  <li><a class="dropdown-item" href="chart_video">뮤직비디오 차트</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown linenav">
@@ -444,9 +446,6 @@
                   <li><a class="dropdown-item" href="#">POP</a></li>
                   <li><a class="dropdown-item" href="#">OST</a></li>
                   <li><a class="dropdown-item" href="#">트롯</a></li>
-                  <li><a class="dropdown-item" href="#">EDM</a></li>
-                  <li><a class="dropdown-item" href="#">JAZZ</a></li>
-                  <li><a class="dropdown-item" href="#">JPOP</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown linenav">
@@ -456,7 +455,6 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="#">추천</a></li>
                   <li><a class="dropdown-item" href="#">인기</a></li>
-                  <li><a class="dropdown-item" href="#">태그</a></li>
                 </ul>
               </li>
               <li class="nav-item linenav">
