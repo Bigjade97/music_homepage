@@ -1,12 +1,15 @@
 from django.core.checks import messages
 from django.shortcuts import redirect, render
-from .models import User
+from .models import User, Top100, Video, Live_Chart, Ballad, Pop, Hip, Trot, New_Song, New_Album
 from django.contrib import messages
+from django.core.paginator import Paginator
+import os
 # Create your views here.
 
 def main (req) :
+  l_chart_10 = Live_Chart.objects.all().order_by('pk')
   if req.session.get('userid'):
-    return render (req, 'music.html', {'pam1' : req.session['userid']} )
+    return render (req, 'music.html', {'pam1' : req.session['userid'], 'l_chart' : l_chart_10} )
   else:
     if req.method == "POST" :
       logged_member = User.objects.get(userid = req.POST.get('id'), password = req.POST.get('pw'))
@@ -14,12 +17,12 @@ def main (req) :
         req.session['userid'] = req.POST.get('id')
         req.session['password'] = req.POST.get('pw')
         print("asda")
-        return render(req, 'music.html', {'pam1' : req.session['userid']})
+        return render(req, 'music.html', {'pam1' : req.session['userid'], 'l_chart' : l_chart_10})
       else :
         messages.error(req, '아이디와 비밀번호를 확인해주세요.')
         return redirect('../ssac/main')
     else :
-      return render (req, 'music.html')
+      return render (req, 'music.html', {'l_chart' : l_chart_10})
 
 def login_ajax (req) :
   return render(req, 'login_ajax.html')
@@ -108,19 +111,59 @@ def out (req) :
     return render (req, 'out.html', {'pam1' : req.session['userid']})
 
 def chart_top (req) :
-  return render(req, 'chart_top.html', {'pam1' : req.session['userid']}) 
+
+  chart_100 = Top100.objects.all().order_by('pk')
+  page = int(req.GET.get('page', '1')) #GET 방식으로 정보를 받아오는 데이터
+  paginator = Paginator(chart_100, 50) #Paginator(분할된 객체, 페이지 당 담길 객체수)
+  page_obj = paginator.get_page(page) #페이지 번호를 받아 페이지를 리턴
+  
+  return render(req, 'chart_top.html', {'pam1' : req.session['userid'], 'page_obj' : page_obj}) 
 
 def chart_genre (req) :
-  return render(req, 'chart_genre.html', {'pam1' : req.session['userid']}) 
+  b_chart_50 = Ballad.objects.all().order_by('pk')
+  page = int(req.GET.get('page', '1')) #GET 방식으로 정보를 받아오는 데이터
+  paginator = Paginator(b_chart_50, 25) #Paginator(분할된 객체, 페이지 당 담길 객체수)
+  page_obj_b = paginator.get_page(page) #페이지 번호를 받아 페이지를 리턴
+  return render(req, 'chart_genre.html', {'pam1' : req.session['userid'], 'page_obj_b' : page_obj_b}) 
 
 def chart_genre_pop (req) :
-  return render(req, 'chart_genre_pop.html', {'pam1' : req.session['userid']}) 
+  p_chart_50 = Pop.objects.all().order_by('pk')
+  page = int(req.GET.get('page', '1')) #GET 방식으로 정보를 받아오는 데이터
+  paginator = Paginator(p_chart_50, 25) #Paginator(분할된 객체, 페이지 당 담길 객체수)
+  page_obj_b = paginator.get_page(page) #페이지 번호를 받아 페이지를 리턴
+  return render(req, 'chart_genre_pop.html', {'pam1' : req.session['userid'], 'page_obj_b' : page_obj_b}) 
 
-def chart_genre_ost (req) :
-  return render(req, 'chart_genre_ost.html', {'pam1' : req.session['userid']}) 
+def chart_genre_hip (req) :
+  h_chart_50 = Hip.objects.all().order_by('pk')
+  page = int(req.GET.get('page', '1')) #GET 방식으로 정보를 받아오는 데이터
+  paginator = Paginator(h_chart_50, 25) #Paginator(분할된 객체, 페이지 당 담길 객체수)
+  page_obj_b = paginator.get_page(page) #페이지 번호를 받아 페이지를 리턴
+  return render(req, 'chart_genre_hip.html', {'pam1' : req.session['userid'], 'page_obj_b' : page_obj_b}) 
 
 def chart_genre_trot (req) :
-  return render(req, 'chart_genre_trot.html', {'pam1' : req.session['userid']}) 
+  t_chart_50 = Trot.objects.all().order_by('pk')
+  page = int(req.GET.get('page', '1')) #GET 방식으로 정보를 받아오는 데이터
+  paginator = Paginator(t_chart_50, 25) #Paginator(분할된 객체, 페이지 당 담길 객체수)
+  page_obj_b = paginator.get_page(page) #페이지 번호를 받아 페이지를 리턴
+  return render(req, 'chart_genre_trot.html', {'pam1' : req.session['userid'], 'page_obj_b' : page_obj_b}) 
 
 def chart_video (req) :
-  return render(req, 'chart_video.html', {'pam1' : req.session['userid']}) 
+  v_chart_100 = Video.objects.all().order_by('pk')
+  page = int(req.GET.get('page', '1')) #GET 방식으로 정보를 받아오는 데이터
+  paginator = Paginator(v_chart_100, 50) #Paginator(분할된 객체, 페이지 당 담길 객체수)
+  page_obj = paginator.get_page(page) #페이지 번호를 받아 페이지를 리턴
+  return render(req, 'chart_video.html', {'pam1' : req.session['userid'], 'page_obj' : page_obj})
+
+def new_song (req) :
+  n_chart_100 = New_Song.objects.all().order_by('pk')
+  page = int(req.GET.get('page', '1')) #GET 방식으로 정보를 받아오는 데이터
+  paginator = Paginator(n_chart_100, 25) #Paginator(분할된 객체, 페이지 당 담길 객체수)
+  page_obj = paginator.get_page(page) #페이지 번호를 받아 페이지를 리턴
+  return render(req, 'new_song.html', {'pam1' : req.session['userid'], 'page_obj' : page_obj}) 
+
+def new_album (req) :
+  na_chart_100 = New_Album.objects.all().order_by('pk')
+  page = int(req.GET.get('page', '1')) #GET 방식으로 정보를 받아오는 데이터
+  paginator = Paginator(na_chart_100, 10) #Paginator(분할된 객체, 페이지 당 담길 객체수)
+  page_obj_b = paginator.get_page(page) #페이지 번호를 받아 페이지를 리턴
+  return render(req, 'new_album.html', {'pam1' : req.session['userid'], 'page_obj_b' : page_obj_b})  
