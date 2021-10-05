@@ -14,9 +14,13 @@
     .album_img {
       width: 160px;
       height: 160px;
+      border-start-start-radius: 10px;
     }
     .t_album_box {
-      width: 100
+    width: 100;
+    }
+    .album_box {
+      border-radius: 10px;
     }
   </style>
   <script type="text/javascript">
@@ -43,10 +47,14 @@
           {% for a in page_obj_b %}
           <li class="album_box col-5 row p-0 m-2 d-flex justify-content-between">
             <div class="thumb col-5 p-0"> 
-              <img src="{% static 'new_album_01.jpeg' %}" class="album_img"> 
+              {% if page_obj_b.number == 2 %}
+              <img class="album_img" src="{% get_static_prefix %}album_img{{ forloop.counter|add:'10' }}.jpeg" width= "100%" alt="1"> 
+              {% else %}
+              <img class="album_img" src="{% get_static_prefix %}album_img{{ forloop.counter }}.jpeg" width= "100%" alt="1"> 
+              {% endif %}
             </div>
             <div class="entry col-7 p-0 ">
-              <div class="info text-start ms-4 mt-3">
+              <div class="info text-start ms-4 mt-2">
                 <div>{{ a.kind }}</div>
                 <div style="font-size: 1.2em;"><a>{{ a.album }}</a></div>
                 <div style="font-size: 0.8em;">{{ a.singer }}</div>

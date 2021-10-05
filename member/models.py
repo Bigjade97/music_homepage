@@ -88,3 +88,23 @@ class New_Album(models.Model):
     
     def __str__(self):
         return self.album
+
+class Mylist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    song = models.ForeignKey(Top100, on_delete=models.CASCADE)
+    # 수량은 -1 과 같은 수량이 없기 때문에 아래의 필드로 선언하여 최소값을 1 로 설정
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = '마이리스트'
+        verbose_name_plural = f'{verbose_name} 목록'
+        ordering = ['-pk']
+        
+    def sub_singer(self):
+      return self.song.singer
+    
+    def sub_album(self):
+      return self.song.album
+
+    def __str__(self):
+        return self.song.name

@@ -10,12 +10,21 @@
 
   </style>
   <script type="text/javascript">
+    function checkAll(element){
+				var checkboxes = document.getElementsByTagName('input');
+				for(var i=0; i<checkboxes.length; i++){
+					if(checkboxes[i].type == 'checkbox'){
+						checkboxes[i].checked = element.checked;
+					}
+				}			
+			}
+
     $(".hover").mouseleave(
       function() {
         $(this).removeClass("hover");
       }
     );
-    
+
   </script>
   <div class="container container2">
     <div class="mb-3 ms-2 chart_top_text">뮤직차트</div>
@@ -35,30 +44,37 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col-1"></th>
+              <th scope="col-1"><input type="checkbox" onchange="checkAll(this)"></th>
               <th scope="col-1">순위</th>
               <th scope="col-1">곡정보</th>
               <th scope="col-9">가수</th>
             </tr>
           </thead>
-          {% for a in page_obj %}
-          <tbody>
-            <tr>
-              <td scope="row"><input type="checkbox" class="align-middle mt-3"></td>
-              {% if page_obj.number == 2 %}
-              <td>{{ forloop.counter|add:"50" }}</td>
-              {% else %}
-              <td>{{ forloop.counter }}</td>
-              {% endif %}
-              <td>
-                <div>{{ a.name }}</div>
-                <div style="font-size : 0.8em;">{{ a.album }}</div>
-              </td>
-              <td>{{ a.singer }}</td>
-            </tr>
-          </tbody>
-          {% endfor %}
+          <form action="" method="post">
+            {% csrf_token %}
+            {% for a in page_obj %}
+            <tbody>
+              <tr>
+                <td scope="row"><input type="checkbox" name="chkbox_elem" class="align-middle mt-3" value="{{ a.name }}"></td>
+                {% if page_obj.number == 2 %}
+                <td>{{ forloop.counter|add:"50" }}</td>
+                {% else %}
+                <td>{{ forloop.counter }}</td>
+                {% endif %}
+                <td>
+                  <div>{{ a.name }}</div>
+                  <div style="font-size : 0.8em;">{{ a.album }}</div>
+                </td>
+                <td>{{ a.singer }}</td>
+              </tr>
+            </tbody>
+            {% endfor %}
+            <button class="btn btn-outline-secondary mt-2 " type="submit">추가하기</button>
+          </form>
         </table>
+        {% for message in messages %}
+        <script>alert('{{ message }}')</script>
+        {% endfor %}
         <!-- 페이징처리시작 -->
     <div id = "paging">
       <ul class = "pagination justify-content-center" style="margin-top: 2rem;">

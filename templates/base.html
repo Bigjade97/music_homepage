@@ -316,8 +316,8 @@
         display: inline-block;
       }
       .social_img img{
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
       }
       tr:hover {
         cursor: pointer;
@@ -446,15 +446,6 @@
                   <li><a class="dropdown-item" href="chart_genre_trot">트롯</a></li>
                 </ul>
               </li>
-              <li class="nav-item dropdown linenav">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  추천
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">추천</a></li>
-                  <li><a class="dropdown-item" href="#">인기</a></li>
-                </ul>
-              </li>
               <li class="nav-item linenav">
                 <a class="nav-link" href="chart_video">뮤직비디오</a>
               </li>
@@ -483,12 +474,10 @@
                 </div>
                 <div class="login-btn-wrap">
                   <button type="submit" onclick="ajax();" class="btn btn-outline-secondary w-100">로그인</button>
-                  <div class="d-flex justify-content-between">
-                    <a class="shadow-light mt-3" type="button" href='http://118.67.129.245:8007/ssac/passedit' >비밀번호 변경</a>
+                  <div class="d-flex justify-content-end">
                     <a class="shadow-light mt-3" type="button" href='http://118.67.129.245:8000/ssac/make' >회원가입</a>
                   </div>  
                 </div>
-              <div id="my_div"></div>
               </form>
             </div>
           </ul>
@@ -520,14 +509,14 @@
     <div class="footer p-1">
       <div class="row">
         <div class="notice m-0 col-2 d-flex justify-content-end">
-        <a type="button" class="ms-5">공지사항</a>
+        <a type="button" class="ms-5" style="white-space: nowrap;">공지사항</a>
         </div>
         <ul class="footer_menu col-10 pe-5">
           <li class="bottom_text mx-2">
             <a class="" type="button">이벤트</a>
           </li>
           <li class="bottom_text mx-2">
-            <a class="" type="button">고객센터</a>
+            <a class="" type="button" >고객센터</a>
           </li>
           <li class="bottom_text mx-2">
             <a class="" type="button">이용안내</a>
@@ -535,9 +524,9 @@
         </ul>
         <hr>
         <div class="col-3 p-5 d-flex justify-content-end">
-          <h4 class="ms-3">(주) 뮤직뮤직</h4>  
+          <h5 class="ms-3" style="white-space: nowrap;">(주) 뮤직뮤직</h4>  
         </div>
-        <div class="col-5 p-5">
+        <div class="col-5 p-5" style="font-size : 0.5em;">
         대표 박태규 | 서울 동작구 사당동<br> 
         사업자등록번호 312-09-12312 | 문의전화 1515-1236 
         </div>

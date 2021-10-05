@@ -102,6 +102,9 @@
         </small>
       </div>
     </section>
-  </div> 
+  </div>
+  {% for message in messages %}
+  <script>alert('{{ message }}')</script>
+  {% endfor %} 
 </body>
 </html>

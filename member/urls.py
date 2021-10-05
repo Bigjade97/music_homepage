@@ -20,4 +20,5 @@ urlpatterns = [
         path('chart_video', views.chart_video),
         path('new_song', views.new_song),
         path('new_album', views.new_album),
+        path('mylist', views.mylist)
 ]

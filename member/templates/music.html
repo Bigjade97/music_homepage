@@ -5,146 +5,396 @@
     <!-- 본문 최신음악 등 앨범 -->
     <div class="container">
       <div class="second_var">
-        <ul>
-          <li class="middle_button me-2">
-            <h2 class="mt-3">
-              <a type="button">최신음악</a>
-            </h2>
+        <ul class="nav nav-pills mb-3 ms-5" id="pills-tab" role="tablist">
+          <h2 class="mt-3 me-3">
+            <a">최신음악</a>
+          </h2>
+          <li class="nav-item mt-3 me-2" role="presentation">
+            <button class="btn btn-outline-secondary btn-sm active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">종합</button>
           </li>
-          <li class="middle_button mx-2">
-            <a class="btn7" type="button">종합</a>
+          <li class="nav-item mt-3 me-2" role="presentation">
+            <button class="btn btn-outline-secondary btn-sm" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">국내</button>
           </li>
-          <li class="middle_button mx-2">
-            <a class="btn7" type="button">국내</a>
-          </li>
-          <li class="middle_button ms-2">
-            <a class="btn7" type="button">국외</a>
+          <li class="nav-item mt-3" role="presentation">
+            <button class="btn btn-outline-secondary btn-sm" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">해외</button>
           </li>
         </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="row d-flex justify-content-center">
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img01.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Haru Kid</h3>
+                    <p class="mt-5">3, 2, 1</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img02.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">정동하</h3>
+                    <p class="mt-5">너의 모습</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img03.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">TOUT Y EST & DAUL</h3>
+                    <p class="mt-5">AVENUE</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img04.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">더 데이지 (The Daisy)</h3>
+                    <p class="mt-5">연애의 참견 2021 OST - Part.23</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img05.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">APRO (아프로)</h3>
+                    <p class="mt-5">고군분투</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img06.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">루커스 (LU4US)</h3>
+                    <p class="mt-5">MY LOVE</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img07.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">오세민 (도란)</h3>
+                    <p class="mt-5">생각에 지쳐 잠 못 드는 밤에</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img08.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">O$TEN</h3>
+                    <p class="mt-5">How was your Day</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img09.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Chosen 1 (초즌원)</h3>
+                    <p class="mt-5">Just Do It</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img10.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Osshun Gum</h3>
+                    <p class="mt-5">The way to Heaven</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img11.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">소소상점</h3>
+                    <p class="mt-5">비가 오면</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main_img12.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Swim in U (스민유)</h3>
+                    <p class="mt-5">사랑에도 공식이 있나요 OST PART 1</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+            </div>    
+          </div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="row d-flex justify-content-center">
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img01.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">타임플라워 (Time Flower)</h3>
+                    <p class="mt-5">Try</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img02.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Filament</h3>
+                    <p class="mt-5">Close eyes</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img03.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">다양성</h3>
+                    <p class="mt-5">동그라미</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img04.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">JT (제이티)</h3>
+                    <p class="mt-5">Color</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img05.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">김한주 (H.FALLEN)</h3>
+                    <p class="mt-5">Breezy</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img06.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">EVEN</h3>
+                    <p class="mt-5">Alien Area</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img07.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">림림 (RimRim)</h3>
+                    <p class="mt-5">신랑에게 (To My Groom)</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img08.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Various Artists</h3>
+                    <p class="mt-5">A.A x G.T.M Compilation Vol. 2</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img09.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Hawaiian Texture</h3>
+                    <p class="mt-5">延命 (연명)</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img10.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">루 (LEW) & Dollarsignpark (스파크)</h3>
+                    <p class="mt-5">희미해지는 기억들에 대하여 (Blurry)</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img11.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">VENI RAIN</h3>
+                    <p class="mt-5">OAO</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main2_img12.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Sammsosa</h3>
+                    <p class="mt-5">SPRED</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+            </div>    
+          </div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div class="row d-flex justify-content-center">
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img01.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Pentatonix</h3>
+                    <p class="mt-5">I Just Called To Say I Love You</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img02.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Wallows</h3>
+                    <p class="mt-5">I Don't Want to Talk</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img03.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Finn Askew</h3>
+                    <p class="mt-5">Tokyo</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img04.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Dempsey Hope</h3>
+                    <p class="mt-5">reset</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img05.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Mahalia</h3>
+                    <p class="mt-5">Roadside</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img06.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Norah Jones</h3>
+                    <p class="mt-5">Christmas Calling (Jolly Jones)
+                    </p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img07.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Artz & Bugy & BEAM</h3>
+                    <p class="mt-5">Numby</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img08.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Tony Bennett & Lady Gaga</h3>
+                    <p class="mt-5">Love For Sale (Deluxe)</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img09.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Johnny Stimson</h3>
+                    <p class="mt-5">Material Things</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img10.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Lil Wayne & Rich The Kid</h3>
+                    <p class="mt-5">Trust Fund Babies</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img11.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Kane Brown & H.E.R.</h3>
+                    <p class="mt-5">Blessed & Free</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+              <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
+                <figure class="snip1384">
+                  <img src="{% static 'main3_img12.jpeg' %}" class="top_img" alt="...">
+                  <figcaption>
+                    <h3 class="mt-4">Oliver Tree & Little Big</h3>
+                    <p class="mt-5">Welcome To The Internet</p><i class="ion-ios-arrow-right"></i>
+                  </figcaption>
+                  <a href="#"></a>
+                </figure>
+              </div>
+            </div>      
+          </div>
+        </div>
       </div>
-  
-      <div class="row d-flex justify-content-center">
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img01.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">서준혁 & Lemma</h3>
-              <p class="mt-5">집단지성</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img02.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">이홍기 (FT아일랜드)</h3>
-              <p class="mt-5">(Vol.109) 유희열의 스케치북 : 일흔 한번째 목소리 '유스케 X 이홍기 (FT아일랜드)'</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img03.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">AITE (아이테)</h3>
-              <p class="mt-5">I LOVE MY ROOM</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img04.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">피아노의 숲</h3>
-              <p class="mt-5">Piano Playlist 01</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img05.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">감성소년</h3>
-              <p class="mt-5">쉽게 이별을 말하지마요</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img06.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">카진 (KAJIN)</h3>
-              <p class="mt-5">얼마나</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img07.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">IAMMONEY & BUSYNESSBOY</h3>
-              <p class="mt-5">IAMMONEY VS BUSYNESSBOY</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img08.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">김이불</h3>
-              <p class="mt-5">이러지 말아요</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img09.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">ESON</h3>
-              <p class="mt-5">ABOUT ME</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img10.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">김태연</h3>
-              <p class="mt-5">내 딸 하자 땡큐콘서트</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img11.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">뷰티풀 뷰 (VEAUTIFUL BIEW)</h3>
-              <p class="mt-5">이상해,불공평해,너가책임져야해</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-        <div class="top_album col-lg-2 col-md-4 col-sm-6 col-xs-6 col-6 m-0 p-0">
-          <figure class="snip1384">
-            <img src="{% static 'top_img12.jpeg' %}" class="top_img" alt="...">
-            <figcaption>
-              <h3 class="mt-4">RAINUD</h3>
-              <p class="mt-5">Out of Time</p><i class="ion-ios-arrow-right"></i>
-            </figcaption>
-            <a href="#"></a>
-          </figure>
-        </div>
-      </div>  
     </div>    
     <!-- 배너     -->
     <div class="banner p-0 row text-center">
@@ -182,6 +432,11 @@
                   <td></td>
                   <td>{{ a.name }}</td>
                   <td>{{ a.singer }}</td>
+                  <td>
+                    <audio controls>
+                    <source src="/static/{{ a.name }}.mp3" type="audio/mp3">
+                    </audio>
+                  </td>
                 </tr>
               </tbody>
               {% endfor %}

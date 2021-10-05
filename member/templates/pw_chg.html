@@ -78,4 +78,7 @@
         </section>
       </div>
     </div>
+    {% for message in messages %}
+    <script>alert('{{ message }}')</script>
+    {% endfor %}
 {% endblock %}  
