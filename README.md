@@ -15,7 +15,8 @@
 
 </aside>
 
-![스크린샷 2021-12-14 오후 10.18.24.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/998874f1-8947-4a83-90eb-0adefa487b34/스크린샷_2021-12-14_오후_10.18.24.png)
+![Uploading 1.png…]()
+
 
 # Music **- 개인프로젝트**
 
